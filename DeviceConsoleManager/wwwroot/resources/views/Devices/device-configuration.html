@@ -1,0 +1,64 @@
+<div class="page-header">
+	<div class="row align-items-end">
+		<div class="col-lg-8">
+			<div class="page-header-title">
+				<div class="d-inline">
+					<h4>Device Location Information</h4>
+					<span>you can manage device location information from here </span>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="page-header-breadcrumb">
+				<ul class="breadcrumb-title">
+					~
+					<li class="breadcrumb-item">
+						<a href="index-2.html"> <i class="icofont icofont-home"></i> </a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="#!">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="card">
+	<div class="card-header">
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deviceLocations">
+			Add New Location
+		</button>
+	</div>
+	<div class="card-block" ng-init="GetAll()">
+		<table datatable="ng" class="table table-bordered table-styling table-hover">
+			<thead>
+				<tr>
+					<th>Sl. No</th>
+					<th>Device Name</th>
+					<th class="text-center">Device Code</th>
+					<th class="text-center">Location</th>
+					<th class="text-center">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="column in columnlists">
+					<td> {{ $index + 1 }}</td>
+					<td>{{column.DeviceName}}</td>
+					<td class="text-center">{{column.DeviceCode}}</td>
+					<td class="text-center">{{column.DeviceLocation}}</td>
+					<td class="text-center">
+						<button type="button" class="btn btn-info btn-sm" ng-click="getEditOption(column)">
+							Edit
+						</button> &nbsp;
+
+						<button type="button" class="btn btn-danger btn-sm" ng-click="delete(column.Id)">
+							Delete
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

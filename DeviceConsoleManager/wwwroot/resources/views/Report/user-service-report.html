@@ -1,0 +1,201 @@
+﻿<div class="page-header" style="border-bottom:1px dotted !important">
+	<div class="row align-items-end">
+		<div class="col-lg-8">
+			<div class="page-header-title">
+				<div class="d-inline">
+					<h4>Cutomer Service Information </h4>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="page-header-breadcrumb">
+				<ul class="breadcrumb-title">
+					<li class="breadcrumb-item">
+						<a href="index-2.html"> <i class="icofont icofont-home"></i> </a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="#!">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header" style="border-bottom:1px solid dotted;">
+            </div>
+            <div class="card-block">
+                <canvas id="userChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header" style="border-bottom:1px solid dotted;">
+            </div>
+            <div class="card-block">
+                <canvas id="deviceChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header" style="border-bottom:1px solid dotted;">
+
+            </div>
+            <div class="card-block" ng-init="GetDeviceServiceRecords()">
+                <canvas id="multiAxisChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <!--
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header" style="border-bottom:1px solid dotted;">
+
+            </div>
+            <div class="card-block" ng-init="LoadSteppedLineChart()">
+                <canvas id="steppedLineChart"></canvas>
+            </div>
+        </div>
+    </div>
+    -->
+</div>
+
+<div class="card">
+    <div class="card-header" style="border-bottom:1px solid dotted;">
+        <div class="row">
+            <div class="col-md-12 text-left text-uppercase" style="border-bottom:1px solid #ede7ee; padding-bottom:5px;">
+                <b>Device Status</b>
+            </div>
+        </div>
+    </div>
+    <div class="card-block">
+        <table class="table table-bordered table-styling table-hover" ng-init="GetDeviceStaus()">
+            <thead>
+                <tr>
+                    <th class="text-left">Device Name</th>
+                    <th class="text-center">Location</th>
+                    <th class="text-center">Customer Name</th>
+                    <th class="text-center">Mobile Number</th>
+                    <th class="text-center">Started From</th>
+                    <th class="text-center">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in DeviceStatus | orderBy:'IsRunning'">
+                    <td class="text-left">{{row.DeviceName}}</td>
+                    <td class="text-center">{{row.LocationName}}</td>
+                    <td class="text-center">{{row.UserName}}</td>
+                    <td class="text-center">{{row.MobileNumber}}</td>
+                    <td class="text-center">{{row.StartTime | date:"MM/dd/yyyy 'at' hh:mm:ss a"}}</td>
+                    <td class="text-center">
+                        <i ng-show="row.IsRunning" class="fa fa-cog fa-spin" style="font-size:15px; color:green;"></i>
+                        <i ng-show="!row.IsRunning" class="fa fa-cog" style="font-size:15px; color:red;"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card">
+	<div class="card-header" style="border-bottom:1px solid dotted;">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group row">
+					<label class="col-sm-4 col-form-label">Customer</label>
+					<div class="col-sm-8" ng-init="GetAllUsers()">
+                        <select ng-model="search.customerId"
+                                ng-change="GetDeviceInfoBy(search.customerId)"
+                                class="form-control"
+                                ng-options="u.Id as u.UserName for u in Users">
+                            <option value="" selected>All</option>
+                        </select>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group row">
+					<label class="col-sm-4 col-form-label">Device</label>
+					<div class="col-sm-8" ng-init="GetDeviceInfo()">
+                        <select class="form-control"
+                                ng-model="search.deviceId"
+                                ng-options="d.Id as d.DeviceName for d in DeviceList">
+                            <option value="" selected>All</option>
+                        </select>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group row">
+					<label class="col-sm-4 col-form-label">From Date</label>
+					<div class="col-sm-8">
+						<input class="form-control" ng-model="search.startDate" type="date" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-4 col-form-label">To Date</label>
+					<div class="col-sm-8">
+						<input class="form-control" ng-model="search.endDate" type="date" />
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="row">
+            <div class="col-md-6 text-left" style="border-bottom:1px solid #ede7ee; padding-bottom:5px;">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ExportUserServiceInfo()"><i class="fa fa-file-excel-o"></i>&nbsp;Export to CSV</button>
+            </div>
+            <div class="col-md-6 text-right" style="border-bottom:1px solid #ede7ee; padding-bottom:5px;">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="GetAll(search)"><i class="fa fa-search"></i>&nbsp;Search</button>
+            </div>
+        </div>
+	</div>
+	<div class="card-block">
+		<table datatable="ng" class="table table-bordered table-styling table-hover table-responsive" ng-init="GetAll(search)">
+			<thead>
+				<tr>
+					<th style="width:80%">Cutomer Name</th>
+					<th style="width:80%" class="text-center">Mobile Number</th>
+					<th style="width:80%" class="text-center">Tran. Date </th>
+					<th style="width:80%" class="text-center">Tran. Reference</th>
+					<th style="width:80%" class="text-center">Start Time</th>
+					<th style="width:80%" class="text-center">End Time</th>
+					<th style="width:80%" class="text-center">Service Time</th>
+					<th style="width:80%" class="text-center">Tran. Amount</th>
+					<th style="width:80%" class="text-center">Device ID</th>
+					<th style="width:80%" class="text-center">Device Name</th>
+					<th style="width:80%" class="text-center">Location</th>
+					<th style="width:10%" class="text-center">Location Level</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="row in UserServiceList">
+					<td>{{row.User.UserName}}</td>
+					<td class="text-center">{{row.User.MobileNumber}}</td>
+					<td class="text-center">{{row.Transiction.TransictionDate | date:"MM/dd/yyyy 'at' hh:mm:ss a"}}</td>
+					<td class="text-center">{{row.Transiction.Guid}}</td>
+					<td class="text-center">{{row.UserService.StartTime | date:"MM/dd/yyyy 'at' hh:mm:ss a"}}</td>
+					<td class="text-center">{{row.UserService.EndTime | date:"MM/dd/yyyy 'at' hh:mm:ss a"}}</td>
+					<td class="text-center">{{GetTotalMinutes(row.UserService.StartTime, row.UserService.EndTime)}}&nbsp;<span class="badge badge-dark"> minutes</span></td>
+					<td class="text-right">{{row.Transiction.TransictionAmount | number}}</td>
+					<td class="text-center">{{row.DeviceInformation.DeviceCode}}</td>
+					<td class="text-center">{{row.DeviceInformation.DeviceName}}</td>
+					<td class="text-center">{{row.DeviceLocation.LocationName}}</td>
+					<td class="text-center">{{row.DeviceLocation.LocationLevel}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+
+

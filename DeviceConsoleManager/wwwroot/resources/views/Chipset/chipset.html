@@ -1,0 +1,165 @@
+<div class="page-header">
+	<div class="row align-items-end">
+		<div class="col-lg-8">
+			<div class="page-header-title">
+				<div class="d-inline">
+					<h4>Customer Smart Card Information</h4>
+					<span>You can manage customer smart card from here</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="page-header-breadcrumb">
+				<ul class="breadcrumb-title">
+					<li class="breadcrumb-item">
+						<a href="index-2.html"> <i class="icofont icofont-home"></i> </a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="#!">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="card">
+    <div class="card-header">
+        <p style="font-weight:bold; font-style:italic;">You can only assign new smart card to a customer from here. To write card information to customer smart card you need to use Smart Card Writer App </p>
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#userChipModal">
+            Add New Customer Smart Card
+        </button>
+    </div>
+	<div class="card-block" ng-init="GetUserCards()">
+		<table datatable="ng" class="table table-bordered table-styling table-hover">
+			<thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th class="text-center">Card Number</th>
+                    <th class="text-center">Expaire Date</th>
+                    <th class="text-center">Is Active</th>
+                    <th class="text-center">Action</th>
+                </tr>
+			</thead>
+			<tbody>
+                <tr ng-repeat="row in columnlists">
+                    <td>{{row.User.UserName}}</td>
+                    <td class="text-center">{{row.Card.ChipCardNo}}</td>
+                    <td class="text-center">{{row.Card.ExpairDate | date:"dd/MM/yyyy"}}</td>
+                    <td class="text-center">
+                        <i ng-show="row.Card.IsActive" class="fa fa-check color-primary"></i>
+                    </td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-info btn-sm" ng-click="openUpdateModal(row)">
+                            <i class="fa fa-pencil-square-o"></i>&nbsp;Edit
+                        </button> &nbsp;
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="deleteSmartCard(row.UserCardId)">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+			</tbody>
+		</table>
+		<!--<kendo-grid options="mainGridOptions"></kendo-grid>-->
+	</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="userChipModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Customer Smart Card Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="userFrom">
+                    <div class="form-group row" ng-init="genarateRandomNumber()">
+                        <label class="col-sm-4 col-form-label">Card Number <span style="color:red"> * </span> </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="firstName" ng-model="usercard.ChipCardNo" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Customer <span style="color:red"> * </span> </label>
+                        <div class="col-sm-8" ng-init="GetAllUsers()">
+                            <select ng-model="usercard.UserId"
+                                    class="form-control"
+                                    ng-options="u.Id as u.UserName for u in Users"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Expair Date <span style="color:red"> * </span> </label>
+                        <div class="col-sm-8">
+                            <input class="form-control" ng-model="usercard.ExpairDate" type="date" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><i class="fa fa-window-close"></i>&nbsp;Close</button>
+                <button type="button" class="btn btn-primary btn-sm" ng-hide="isUpdateMode" ng-click="saveChanges(usercard)"><i class="fa fa-save"></i>&nbsp;Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="userChipUpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Customer Smart Card Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="frmChipCardUpdate" id="frmChipCardUpdate" novalidate>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Customer Name&nbsp;<span style="color:red">*</span></label>
+                        <div class="col-sm-8">
+                            <input type="text"
+                                   class="form-control"
+                                   ng-model="chipCardInfo.User.UserName"
+                                   ng-disabled="true" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Card Number&nbsp;<span style="color:red">*</span></label>
+                        <div class="col-sm-8">
+                            <input type="text"
+                                   class="form-control"
+                                   ng-model="chipCardInfo.Card.ChipCardNo"
+                                   ng-disabled="true" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Expair Date&nbsp;<span style="color:red">*</span></label>
+                        <div class="col-sm-8">
+                            <input class="form-control"
+                                   type="date"
+                                   ng-model="chipCardInfo.Card.ExpairDate"
+                                   required />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Is Active?</label>
+                        <div class="col-sm-8">
+                            <input type="checkbox" 
+                                   class="m-t-10" 
+                                   ng-model="chipCardInfo.Card.IsActive">
+                        </div>
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-window-close"></i>&nbsp;Close</button>                    
+                    <button type="button" class="btn btn-primary btn-sm" ng-disabled="$valid.frmChipCardUpdate" ng-click="update(chipCardInfo)"><i class="fa fa-save"></i>&nbsp;Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

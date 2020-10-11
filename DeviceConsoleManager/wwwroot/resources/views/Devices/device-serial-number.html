@@ -1,0 +1,55 @@
+﻿<div class="page-header">
+	<div class="row align-items-end">
+		<div class="col-lg-8">
+			<div class="page-header-title">
+				<div class="d-inline">
+					<h4>Device Serial Number Information</h4>
+					<span>you can manage device serial number from here </span>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="page-header-breadcrumb">
+				<ul class="breadcrumb-title">					~
+					<li class="breadcrumb-item">
+						<a href="index-2.html"> <i class="icofont icofont-home"></i> </a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="#!">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="card">
+	<div class="card-header">
+		<button type="button" class="btn btn-primary" ng-click="GenerateSerailNo()">
+			Generate Device Serial Number
+		</button>
+	</div>
+	<div class="card-block" ng-init="GetAllSerialNo()">
+		<table datatable="ng" class="table table-bordered table-styling table-hover">
+			<thead>
+				<tr>
+					<th>Sl. No</th>
+					<th class="text-center">Serial Number</th>
+					<th class="text-center">Is Used</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="column in columnlists">
+					<td> {{ $index + 1 }}</td>
+					<td class="text-center">{{column.SerialNumber}}</td>
+					<td class="text-center">
+						<i ng-show="column.IsUsed" class="fa fa-check" aria-hidden="true"></i>
+						<i ng-hide="column.IsUsed" class="fa fa-times" aria-hidden="true"></i>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Device Console Manager</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/loginassets/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/loginassets/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/loginassets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/loginassets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/loginassets/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/loginassets/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/loginassets/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/loginassets/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/loginassets/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/loginassets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/loginassets/css/main.css">
+    <!--===============================================================================================-->
+
+    <!--Bootsrap 4 CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Numans">
+    <style type="text/css">
+        /* Made with love by Mutiullah Samim*/
+        html, body {
+            /*background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');*/
+            /*background-image: url('/images/465623cc71a7aab.jpg');*/
+            /*background-image: url('/images/agriculture-industry.jpg');*/
+            /*background-image: url('/images/465623cc71a7a44.jpg');*/
+            background-image: url('/images/46562371745.jpg');
+            /*background-image: url('/images/46562371746.jpg');*/
+            /*background-image: url('/images/46562371747.jpg');*/
+            /*background-image: url('/images/46562371748.jpg');*/
+            /*background-image: url('/images/desktop-background.png');*/
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            font-family: 'Numans', sans-serif;
+        }
+
+        .container {
+            height: 100%;
+            align-content: center;
+        }
+
+        .card {
+            height: 370px;
+            margin-top: auto;
+            margin-bottom: auto;
+            width: 400px;
+            background-color: rgba(0,0,0,0.5) !important;
+        }
+
+        .social_icon span {
+            font-size: 60px;
+            margin-left: 10px;
+            color: #FFC312;
+        }
+
+        .social_icon span:hover {
+            color: white;
+            cursor: pointer;
+        }
+
+        .card-header h3 {
+            color: white;
+        }
+
+        .social_icon {
+            position: absolute;
+            right: 20px;
+            top: -45px;
+        }
+
+        .input-group-prepend span {
+            width: 50px;
+            /*background-color: #FFC312;*/
+            background-color: #ACC8A7;
+            color: black;
+            border: 0 !important;
+        }
+
+        input:focus {
+            outline: 0 0 0 0 !important;
+            box-shadow: 0 0 0 0 !important;
+        }
+
+        .remember {
+            color: white;
+            margin-top: 30px;
+        }
+
+        .remember input {
+            width: 20px;
+            height: 20px;
+            margin-left: 15px;
+            margin-right: 5px;
+        }
+
+        .login_btn {
+            color: black;
+            background-color: #ACC8A7;
+            width: 100px;
+        }
+
+        .login_btn:hover {
+            color: black;
+            background-color: white;
+        }
+
+        .links {
+            color: white;
+        }
+
+        .links a {
+            margin-left: 4px;
+        }
+        .margin-b-10 {
+            margin-bottom: 30px !important;
+        }
+        .alert {
+            font-size: 12px;
+            color: #830909;
+            padding: 0.50rem 1.25rem !important;
+            margin-top: 2px !important;
+            margin-bottom:0px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Sign In</h3>
+                </div>
+                <div class="card-body">
+                    <form class="validate-form" action="javascript:void(0)">                        
+                        <div class="input-group form-group validate-input margin-b-10" data-validate="Valid email is required: ex@abc.xyz">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            </div>
+                            <input type="text" name="email" id="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="input-group form-group validate-input" data-validate="Password is required">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-key"></i></span>
+                            </div>
+                            <input type="password" name="pass" id="pass" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="row align-items-center remember">
+                            <input type="checkbox">Remember Me
+                        </div>
+                        <div class="form-group">
+                            <div class="alert alert-danger float-left" id="wrong-password" role="alert" style="display:none;">
+                                Invaid Email or Password
+                            </div>
+                            <input type="submit" value="Login" class="btn float-right login_btn" onclick="logins()">
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center links">
+                        <i class="fa fa-building">&nbsp;Device Console Manager</i>
+                    </div>
+                    <!--<div class="d-flex justify-content-center">
+                        <a href="#">Forgot your password?</a>
+                    </div>-->
+                </div>
+                <div class="login100-more" style="background-image: url('/loginassets/images/bg-01.jpg')">
+				</div>
+            </div>
+        </div>
+    </div>
+    <!--===============================================================================================-->
+    <script src="/loginassets/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/loginassets/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/loginassets/vendor/bootstrap/js/popper.js"></script>
+    <script src="/loginassets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/loginassets/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/loginassets/vendor/daterangepicker/moment.min.js"></script>
+    <script src="/loginassets/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="/loginassets/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="/loginassets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\node_modules\angular\**" />
+    <Compile Remove="wwwroot\node_modules\jquery\**" />
+    <Compile Remove="wwwroot\node_modules\ngx-toastr\**" />
+    <Content Remove="wwwroot\node_modules\angular\**" />
+    <Content Remove="wwwroot\node_modules\jquery\**" />
+    <Content Remove="wwwroot\node_modules\ngx-toastr\**" />
+    <EmbeddedResource Remove="wwwroot\node_modules\angular\**" />
+    <EmbeddedResource Remove="wwwroot\node_modules\jquery\**" />
+    <EmbeddedResource Remove="wwwroot\node_modules\ngx-toastr\**" />
+    <None Remove="wwwroot\node_modules\angular\**" />
+    <None Remove="wwwroot\node_modules\jquery\**" />
+    <None Remove="wwwroot\node_modules\ngx-toastr\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\files\bower_components\animate.css\css\animate.css" />
+    <Content Include="wwwroot\files\bower_components\bootstrap-daterangepicker\css\daterangepicker.css" />
+    <Content Include="wwwroot\files\bower_components\bootstrap-multiselect\css\bootstrap-multiselect.css" />
+    <Content Include="wwwroot\files\bower_components\bootstrap-tagsinput\css\bootstrap-tagsinput.css" />
+    <Content Include="wwwroot\files\bower_components\bootstrap\css\bootstrap.min.css" />
+    <Content Include="wwwroot\files\bower_components\c3\css\c3.css" />
+    <Content Include="wwwroot\files\bower_components\chartist\css\chartist.css" />
+    <Content Include="wwwroot\files\bower_components\classie\js\classie.html" />
+    <Content Include="wwwroot\files\bower_components\cropper\css\cropper.css" />
+    <Content Include="wwwroot\files\bower_components\datatables.net-bs4\css\dataTables.bootstrap4.min.css" />
+    <Content Include="wwwroot\files\bower_components\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css" />
+    <Content Include="wwwroot\files\bower_components\datedropper\css\datedropper.min.css" />
+    <Content Include="wwwroot\files\bower_components\datedropper\css\dd-icon\dd-icon.eot" />
+    <Content Include="wwwroot\files\bower_components\datedropper\css\dd-icon\dd-icon.ttf" />
+    <Content Include="wwwroot\files\bower_components\datedropper\css\dd-icon\dd-icon.woff" />
+    <Content Include="wwwroot\files\bower_components\datedropper\css\dd-icon\dd-icond41d.eot" />
+    <Content Include="wwwroot\files\bower_components\ekko-lightbox\css\ekko-lightbox.css" />
+    <Content Include="wwwroot\files\bower_components\font-awesome\css\font-awesome.min.css" />
+    <Content Include="wwwroot\files\bower_components\fullcalendar\css\fullcalendar.css" />
+    <Content Include="wwwroot\files\bower_components\fullcalendar\css\fullcalendar.print.css" />
+    <Content Include="wwwroot\files\bower_components\handsontable\css\handsontable.full.min.css" />
+    <Content Include="wwwroot\files\bower_components\intro.js\css\introjs.css" />
+    <Content Include="wwwroot\files\bower_components\jquery-bar-rating\css\bars-1to10.css" />
+    <Content Include="wwwroot\files\bower_components\jquery-bar-rating\css\bars-horizontal.css" />
+    <Content Include="wwwroot\files\bower_components\jquery-bar-rating\css\bars-movie.css" />
+    <Content Include="wwwroot\files\bower_components\jquery-bar-rating\css\bars-pill.css" />
+    <Content Include="wwwroot\files\bower_components\jquery-bar-rating\css\bars-reversed.css" />
+    <Content Include="wwwroot\files\bower_components\jquery-bar-rating\css\bars-square.css" />
+    <Content Include="wwwroot\files\bower_components\jquery-bar-rating\css\css-stars.css" />
+    <Content Include="wwwroot\files\bower_components\jquery-bar-rating\css\fontawesome-stars-o.css" />
+    <Content Include="wwwroot\files\bower_components\jquery-bar-rating\css\fontawesome-stars.css" />
+    <Content Include="wwwroot\files\bower_components\jquery-minicolors\css\jquery.minicolors.css" />
+    <Content Include="wwwroot\files\bower_components\jquery-minicolors\images\jquery.minicolors.png" />
+    <Content Include="wwwroot\files\bower_components\jquery.steps\css\jquery.steps.css" />
+    <Content Include="wwwroot\files\bower_components\jstree\css\style.min.css" />
+    <Content Include="wwwroot\files\bower_components\lightbox2\css\lightbox.css" />
+    <Content Include="wwwroot\files\bower_components\lightbox2\css\lightbox.min.css" />
+    <Content Include="wwwroot\files\bower_components\lightbox2\images\close.png" />
+    <Content Include="wwwroot\files\bower_components\lightbox2\images\loading.gif" />
+    <Content Include="wwwroot\files\bower_components\lightbox2\images\next.png" />
+    <Content Include="wwwroot\files\bower_components\lightbox2\images\prev.png" />
+    <Content Include="wwwroot\files\bower_components\lightgallery\css\lightgallery.min.css" />
+    <Content Include="wwwroot\files\bower_components\lightgallery\img\loading.html" />
+    <Content Include="wwwroot\files\bower_components\lightgallery\img\video-play.html" />
+    <Content Include="wwwroot\files\bower_components\lightgallery\img\vimeo-play.html" />
+    <Content Include="wwwroot\files\bower_components\lightgallery\img\youtube-play.html" />
+    <Content Include="wwwroot\files\bower_components\long-press\css\app.css" />
+    <Content Include="wwwroot\files\bower_components\long-press\css\main.css" />
+    <Content Include="wwwroot\files\bower_components\multiselect\css\multi-select.css" />
+    <Content Include="wwwroot\files\bower_components\multiselect\img\switch.png" />
+    <Content Include="wwwroot\files\bower_components\nvd3\css\nv.d3.css" />
+    <Content Include="wwwroot\files\bower_components\offline\css\offline-language-english.css" />
+    <Content Include="wwwroot\files\bower_components\offline\css\offline-theme-slide.css" />
+    <Content Include="wwwroot\files\bower_components\owl.carousel\css\owl.carousel.css" />
+    <Content Include="wwwroot\files\bower_components\owl.carousel\css\owl.theme.default.css" />
+    <Content Include="wwwroot\files\bower_components\owl.carousel\css\owl.video.play.html" />
+    <Content Include="wwwroot\files\bower_components\pnotify\css\pnotify.brighttheme.css" />
+    <Content Include="wwwroot\files\bower_components\pnotify\css\pnotify.buttons.css" />
+    <Content Include="wwwroot\files\bower_components\pnotify\css\pnotify.css" />
+    <Content Include="wwwroot\files\bower_components\pnotify\css\pnotify.history.css" />
+    <Content Include="wwwroot\files\bower_components\pnotify\css\pnotify.mobile.css" />
+    <Content Include="wwwroot\files\bower_components\seiyria-bootstrap-slider\css\bootstrap-slider.css" />
+    <Content Include="wwwroot\files\bower_components\select2\css\select2.min.css" />
+    <Content Include="wwwroot\files\bower_components\slick-carousel\css\ajax-loader.html" />
+    <Content Include="wwwroot\files\bower_components\slick-carousel\css\fonts\slick-2.html" />
+    <Content Include="wwwroot\files\bower_components\slick-carousel\css\fonts\slick-3.html" />
+    <Content Include="wwwroot\files\bower_components\slick-carousel\css\fonts\slick-4.html" />
+    <Content Include="wwwroot\files\bower_components\slick-carousel\css\fonts\slick.html" />
+    <Content Include="wwwroot\files\bower_components\slick-carousel\css\fonts\slickd41d.html" />
+    <Content Include="wwwroot\files\bower_components\slick-carousel\css\slick-theme.css" />
+    <Content Include="wwwroot\files\bower_components\slick-carousel\css\slick.css" />
+    <Content Include="wwwroot\files\bower_components\spectrum\css\spectrum.css" />
+    <Content Include="wwwroot\files\bower_components\stroll\css\stroll.css" />
+    <Content Include="wwwroot\files\bower_components\sweetalert\css\sweetalert.css" />
+    <Content Include="wwwroot\files\bower_components\swiper\css\swiper.min.css" />
+    <Content Include="wwwroot\files\bower_components\switchery\css\switchery.min.css" />
+    <Content Include="wwwroot\node_modules\angular-datatables\bower.json" />
+    <Content Include="wwwroot\node_modules\angular-datatables\dist\css\angular-datatables.css" />
+    <Content Include="wwwroot\node_modules\angular-datatables\dist\css\angular-datatables.min.css" />
+    <Content Include="wwwroot\node_modules\angular-datatables\dist\plugins\bootstrap\datatables.bootstrap.min.css" />
+    <Content Include="wwwroot\node_modules\angular-datatables\package.json" />
+    <Content Include="wwwroot\node_modules\angularjs-toaster\bower.json" />
+    <Content Include="wwwroot\node_modules\angularjs-toaster\package.json" />
+    <Content Include="wwwroot\node_modules\angularjs-toaster\toaster.css" />
+    <Content Include="wwwroot\node_modules\angularjs-toaster\toaster.min.css" />
+    <Content Include="wwwroot\node_modules\datatables.net-dt\css\jquery.dataTables.css" />
+    <Content Include="wwwroot\node_modules\datatables.net-dt\css\jquery.dataTables.min.css" />
+    <Content Include="wwwroot\node_modules\datatables.net-dt\images\sort_asc.png" />
+    <Content Include="wwwroot\node_modules\datatables.net-dt\images\sort_asc_disabled.png" />
+    <Content Include="wwwroot\node_modules\datatables.net-dt\images\sort_both.png" />
+    <Content Include="wwwroot\node_modules\datatables.net-dt\images\sort_desc.png" />
+    <Content Include="wwwroot\node_modules\datatables.net-dt\images\sort_desc_disabled.png" />
+    <Content Include="wwwroot\node_modules\datatables.net-dt\License.txt" />
+    <Content Include="wwwroot\node_modules\datatables.net-dt\package.json" />
+    <Content Include="wwwroot\node_modules\datatables.net\License.txt" />
+    <Content Include="wwwroot\node_modules\datatables.net\package.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\files\bower_components\autosize\js\autosize.min.js" />
+    <None Include="wwwroot\files\bower_components\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <None Include="wwwroot\files\bower_components\bootstrap-daterangepicker\js\daterangepicker.js" />
+    <None Include="wwwroot\files\bower_components\bootstrap-maxlength\js\bootstrap-maxlength.js" />
+    <None Include="wwwroot\files\bower_components\bootstrap-multiselect\js\bootstrap-multiselect.js" />
+    <None Include="wwwroot\files\bower_components\bootstrap-tagsinput\js\bootstrap-tagsinput.js" />
+    <None Include="wwwroot\files\bower_components\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\files\bower_components\c3\js\c3.js" />
+    <None Include="wwwroot\files\bower_components\chart.js\js\Chart.js" />
+    <None Include="wwwroot\files\bower_components\chartist\js\chartist.js" />
+    <None Include="wwwroot\files\bower_components\clndr\js\clndr.js" />
+    <None Include="wwwroot\files\bower_components\countdown\js\jquery.countdown.js" />
+    <None Include="wwwroot\files\bower_components\cropper\js\cropper.min.js" />
+    <None Include="wwwroot\files\bower_components\d3\js\d3.js" />
+    <None Include="wwwroot\files\bower_components\d3\js\d3.min.js" />
+    <None Include="wwwroot\files\bower_components\datatables.net-bs4\js\dataTables.bootstrap4.min.js" />
+    <None Include="wwwroot\files\bower_components\datatables.net-buttons\js\buttons.html5.min.js" />
+    <None Include="wwwroot\files\bower_components\datatables.net-buttons\js\buttons.print.min.js" />
+    <None Include="wwwroot\files\bower_components\datatables.net-buttons\js\dataTables.buttons.min.js" />
+    <None Include="wwwroot\files\bower_components\datatables.net-responsive-bs4\js\responsive.bootstrap4.min.js" />
+    <None Include="wwwroot\files\bower_components\datatables.net-responsive\js\dataTables.responsive.min.js" />
+    <None Include="wwwroot\files\bower_components\datatables.net\js\jquery.dataTables.min.js" />
+    <None Include="wwwroot\files\bower_components\datedropper\css\dd-icon\dd-icon.svg" />
+    <None Include="wwwroot\files\bower_components\datedropper\js\datedropper.min.js" />
+    <None Include="wwwroot\files\bower_components\ekko-lightbox\js\ekko-lightbox.js" />
+    <None Include="wwwroot\files\bower_components\fullcalendar\js\fullcalendar.min.js" />
+    <None Include="wwwroot\files\bower_components\handsontable\js\de.js" />
+    <None Include="wwwroot\files\bower_components\handsontable\js\handsontable.full.js" />
+    <None Include="wwwroot\files\bower_components\i18next-browser-languagedetector\js\i18nextBrowserLanguageDetector.min.js" />
+    <None Include="wwwroot\files\bower_components\i18next-xhr-backend\js\i18nextXHRBackend.min.js" />
+    <None Include="wwwroot\files\bower_components\i18next\js\i18next.min.js" />
+    <None Include="wwwroot\files\bower_components\intro.js\js\intro.js" />
+    <None Include="wwwroot\files\bower_components\jquery-bar-rating\js\jquery.barrating.js" />
+    <None Include="wwwroot\files\bower_components\jquery-bar-rating\js\jquery.barrating.min.js" />
+    <None Include="wwwroot\files\bower_components\jquery-i18next\js\jquery-i18next.min.js" />
+    <None Include="wwwroot\files\bower_components\jquery-minicolors\js\jquery.minicolors.min.js" />
+    <None Include="wwwroot\files\bower_components\jquery-slimscroll\js\jquery.slimscroll.js" />
+    <None Include="wwwroot\files\bower_components\jquery-sparkline\js\jquery.sparkline.js" />
+    <None Include="wwwroot\files\bower_components\jquery-ui\js\jquery-ui.min.js" />
+    <None Include="wwwroot\files\bower_components\jquery-validation\js\jquery.validate.js" />
+    <None Include="wwwroot\files\bower_components\jquery.cookie\js\jquery.cookie.js" />
+    <None Include="wwwroot\files\bower_components\jquery.steps\js\jquery.steps.js" />
+    <None Include="wwwroot\files\bower_components\jquery\js\jquery.min.js" />
+    <None Include="wwwroot\files\bower_components\jscolor\js\jscolor.js" />
+    <None Include="wwwroot\files\bower_components\jstree\js\jstree.min.js" />
+    <None Include="wwwroot\files\bower_components\lightbox2\js\lightbox.js" />
+    <None Include="wwwroot\files\bower_components\lightbox2\js\lightbox.min.js" />
+    <None Include="wwwroot\files\bower_components\lightgallery\js\lg-autoplay.min.js" />
+    <None Include="wwwroot\files\bower_components\lightgallery\js\lg-fullscreen.min.js" />
+    <None Include="wwwroot\files\bower_components\lightgallery\js\lg-hash.min.js" />
+    <None Include="wwwroot\files\bower_components\lightgallery\js\lg-pager.min.js" />
+    <None Include="wwwroot\files\bower_components\lightgallery\js\lg-thumbnail.min.js" />
+    <None Include="wwwroot\files\bower_components\lightgallery\js\lg-video.min.js" />
+    <None Include="wwwroot\files\bower_components\lightgallery\js\lg-zoom.min.js" />
+    <None Include="wwwroot\files\bower_components\lightgallery\js\lightgallery.min.js" />
+    <None Include="wwwroot\files\bower_components\long-press\js\app.js" />
+    <None Include="wwwroot\files\bower_components\long-press\js\jquery.longpress.js" />
+    <None Include="wwwroot\files\bower_components\long-press\js\jquery.mousewheel.js" />
+    <None Include="wwwroot\files\bower_components\long-press\js\plugins.js" />
+    <None Include="wwwroot\files\bower_components\modernizr\js\css-scrollbars.js" />
+    <None Include="wwwroot\files\bower_components\modernizr\js\modernizr.js" />
+    <None Include="wwwroot\files\bower_components\moment\js\moment.js" />
+    <None Include="wwwroot\files\bower_components\moment\js\moment.min.js" />
+    <None Include="wwwroot\files\bower_components\morris.js\js\morris.js" />
+    <None Include="wwwroot\files\bower_components\multiselect\js\jquery.multi-select.js" />
+    <None Include="wwwroot\files\bower_components\nvd3\js\nv.d3.js" />
+    <None Include="wwwroot\files\bower_components\offline\js\offline.min.js" />
+    <None Include="wwwroot\files\bower_components\owl.carousel\js\owl.carousel.min.js" />
+    <None Include="wwwroot\files\bower_components\peity\js\jquery.peity.js" />
+    <None Include="wwwroot\files\bower_components\pnotify\js\pnotify.animate.js" />
+    <None Include="wwwroot\files\bower_components\pnotify\js\pnotify.buttons.js" />
+    <None Include="wwwroot\files\bower_components\pnotify\js\pnotify.callbacks.js" />
+    <None Include="wwwroot\files\bower_components\pnotify\js\pnotify.confirm.js" />
+    <None Include="wwwroot\files\bower_components\pnotify\js\pnotify.desktop.js" />
+    <None Include="wwwroot\files\bower_components\pnotify\js\pnotify.history.js" />
+    <None Include="wwwroot\files\bower_components\pnotify\js\pnotify.js" />
+    <None Include="wwwroot\files\bower_components\pnotify\js\pnotify.mobile.js" />
+    <None Include="wwwroot\files\bower_components\pnotify\js\pnotify.nonblock.js" />
+    <None Include="wwwroot\files\bower_components\popper.js\js\popper.min.js" />
+    <None Include="wwwroot\files\bower_components\raphael\js\raphael.min.js" />
+    <None Include="wwwroot\files\bower_components\rickshaw\js\rickshaw.js" />
+    <None Include="wwwroot\files\bower_components\seiyria-bootstrap-slider\js\bootstrap-slider.js" />
+    <None Include="wwwroot\files\bower_components\select2\js\select2.full.min.js" />
+    <None Include="wwwroot\files\bower_components\slick-carousel\js\slick.min.js" />
+    <None Include="wwwroot\files\bower_components\Sortable\js\Sortable.js" />
+    <None Include="wwwroot\files\bower_components\spectrum\js\spectrum.js" />
+    <None Include="wwwroot\files\bower_components\stroll\js\stroll.js" />
+    <None Include="wwwroot\files\bower_components\sweetalert\js\sweetalert.min.js" />
+    <None Include="wwwroot\files\bower_components\swiper\js\swiper.min.js" />
+    <None Include="wwwroot\files\bower_components\switchery\js\switchery.min.js" />
+    <None Include="wwwroot\files\bower_components\underscore\js\underscore-min.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\angular-datatables.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\angular-datatables.min.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\bootstrap\angular-datatables.bootstrap.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\bootstrap\angular-datatables.bootstrap.min.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\buttons\angular-datatables.buttons.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\buttons\angular-datatables.buttons.min.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\colreorder\angular-datatables.colreorder.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\colreorder\angular-datatables.colreorder.min.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\columnfilter\angular-datatables.columnfilter.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\columnfilter\angular-datatables.columnfilter.min.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\colvis\angular-datatables.colvis.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\colvis\angular-datatables.colvis.min.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\fixedcolumns\angular-datatables.fixedcolumns.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\fixedcolumns\angular-datatables.fixedcolumns.min.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\fixedheader\angular-datatables.fixedheader.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\fixedheader\angular-datatables.fixedheader.min.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\light-columnfilter\angular-datatables.light-columnfilter.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\light-columnfilter\angular-datatables.light-columnfilter.min.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\scroller\angular-datatables.scroller.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\scroller\angular-datatables.scroller.min.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\select\angular-datatables.select.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\select\angular-datatables.select.min.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\tabletools\angular-datatables.tabletools.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\dist\plugins\tabletools\angular-datatables.tabletools.min.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\index.js" />
+    <None Include="wwwroot\node_modules\angular-datatables\README.md" />
+    <None Include="wwwroot\node_modules\angularjs-toaster\.travis.yml" />
+    <None Include="wwwroot\node_modules\angularjs-toaster\index.js" />
+    <None Include="wwwroot\node_modules\angularjs-toaster\karma.conf.js" />
+    <None Include="wwwroot\node_modules\angularjs-toaster\karma.coverage.js" />
+    <None Include="wwwroot\node_modules\angularjs-toaster\LICENSE" />
+    <None Include="wwwroot\node_modules\angularjs-toaster\README.md" />
+    <None Include="wwwroot\node_modules\angularjs-toaster\test\directiveTemplateSpec.js" />
+    <None Include="wwwroot\node_modules\angularjs-toaster\test\toasterContainerControllerSpec.js" />
+    <None Include="wwwroot\node_modules\angularjs-toaster\test\toasterContainerSpec.js" />
+    <None Include="wwwroot\node_modules\angularjs-toaster\test\toasterEventRegistrySpec.js" />
+    <None Include="wwwroot\node_modules\angularjs-toaster\test\toasterServiceSpec.js" />
+    <None Include="wwwroot\node_modules\angularjs-toaster\toaster.js" />
+    <None Include="wwwroot\node_modules\angularjs-toaster\toaster.min.js" />
+    <None Include="wwwroot\node_modules\angularjs-toaster\toaster.scss" />
+    <None Include="wwwroot\node_modules\datatables.net-dt\js\dataTables.dataTables.js" />
+    <None Include="wwwroot\node_modules\datatables.net-dt\js\dataTables.dataTables.min.js" />
+    <None Include="wwwroot\node_modules\datatables.net-dt\Readme.md" />
+    <None Include="wwwroot\node_modules\datatables.net\js\jquery.dataTables.js" />
+    <None Include="wwwroot\node_modules\datatables.net\js\jquery.dataTables.min.js" />
+    <None Include="wwwroot\node_modules\datatables.net\Readme.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="PCSC" Version="4.1.1" />
+    <PackageReference Include="PCSC.Iso7816" Version="4.1.1" />
+    <PackageReference Include="PCSC.Reactive" Version="4.1.1" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\files\assets\js\app\directive\" />
+  </ItemGroup>
+
+</Project>

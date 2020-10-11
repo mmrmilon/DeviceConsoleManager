@@ -1,0 +1,53 @@
+﻿<div class="page-header">
+	<div class="row align-items-end">
+		<div class="col-lg-8">
+			<div class="page-header-title">
+				<div class="d-inline">
+					<h4>Manage Password</h4>
+					<span>you can reset password from here </span>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="page-header-breadcrumb">
+				<ul class="breadcrumb-title">
+					<li class="breadcrumb-item">
+						<a href="index-2.html"> <i class="icofont icofont-home"></i> </a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="#!">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card">
+	<div class="card-block">
+		<form name="frmChangePassword" novalidate>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Password<span style="color:red"> * </span></label>
+				<div class="col-sm-4">
+					<input type="password" class="form-control" name="Password" ng-model="reset.Password" required>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Confirm Password<span style="color:red"> * </span></label>
+				<div class="col-sm-4">
+					<input type="password" class="form-control" name="confirmpPassword" ng-model="reset.confirmPassword" ng-keyup="confirmPassword(reset.confirmPassword,reset.Password)" required>
+					<label class="text-danger" ng-show="isPasswordConfirm == false"> password and confirm passowrd does not match </label>
+				</div>
+			</div>
+			<div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-sm text-left" ng-disabled="!frmChangePassword.$valid" ng-click="ChangePassoword()">
+                        <i class="fa fa-save" aria-hidden="true"></i>&nbsp;Save Changes
+                    </button>
+                </div>
+			</div>
+		</form>
+	</div>
+</div>
+

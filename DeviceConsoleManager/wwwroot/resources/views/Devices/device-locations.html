@@ -1,0 +1,112 @@
+﻿<div class="page-header">
+	<div class="row align-items-end">
+		<div class="col-lg-8">
+			<div class="page-header-title">
+				<div class="d-inline">
+					<h4>Device Location Information</h4>
+					<span>You can manage deivce location from here </span>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="page-header-breadcrumb">
+				<ul class="breadcrumb-title">					~
+					<li class="breadcrumb-item">
+						<a href="index-2.html"> <i class="icofont icofont-home"></i> </a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="#!">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="card">
+	<div class="card-header">
+		<button type="button" class="btn btn-primary" data-toggle="modal" ng-click="AddNewLocations()" data-target="#deviceLocationModal">
+			Add New Location
+		</button>
+	</div>
+	<div class="card-block" ng-init="GetAll()">
+		<table datatable="ng" class="table table-bordered table-styling table-hover">
+			<thead>
+				<tr>
+					<th>No</th>
+					<th>Location Name</th>
+					<th>Location Level</th>
+					<th class="text-center">Is Active</th>
+					<th class="text-center">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="column in locationlist">
+					<td> {{ $index + 1 }}</td>
+					<td>{{column.LocationName}}</td>
+					<td>{{column.LocationLevel}}</td>
+					<td class="text-center">
+						<i ng-show="column.IsActive" class="fa fa-check" aria-hidden="true"></i>
+						<i ng-hide="column.IsActive" class="fa fa-times" aria-hidden="true"></i>
+					</td>
+					<td class="text-center">
+						<button type="button" class="btn btn-info btn-sm" ng-click="OpenDeviceLoactionModal(column)">
+							Edit
+						</button> &nbsp;
+
+						<button type="button" class="btn btn-danger btn-sm" ng-click="delete(column.Id)">
+							Delete
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="deviceLocationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-init="genarateRandomNumber()">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Add Device Information</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group row">
+						<label class="col-sm-4 col-form-label">Location Name</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" ng-model="location.LocationName" required placeholder="Enter Location Name">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-sm-4 col-form-label">Location Level</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" ng-model="location.LocationLevel" required placeholder="Enter Location Level">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-sm-4 col-form-label">Is Active</label>
+						<div class="col-sm-6">
+							<input type="checkbox" class="checkbox" ng-checked="location.IsActive" ng-model="location.IsActive">
+						</div>
+					</div>
+				</form>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success" ng-show="second_form == true" ng-click="back()">Back</button>
+					<button type="button" class="btn btn-primary" ng-hide="isUpdate" ng-click="Save(location)">Save</button>
+					<button type="button" class="btn btn-primary" ng-show="isUpdate" ng-click="update(location)">Update</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,110 @@
+<div class="page-header">
+	<div class="row align-items-end">
+		<div class="col-lg-8">
+			<div class="page-header-title">
+				<div class="d-inline">
+					<h4>Customer Account Information</h4>
+					<span>You can manage customer account from here </span>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="page-header-breadcrumb">
+				<ul class="breadcrumb-title">
+					<li class="breadcrumb-item">
+						<a href="index-2.html"> <i class="icofont icofont-home"></i> </a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="#!">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="card">
+	<div class="card-header">
+		<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#userAccountModal">
+			Add New Account
+		</button>
+	</div>
+	<div class="card-block" ng-init="GetAllUsersAccount()">
+		<table datatable="ng" class="table table-bordered table-styling table-hover">
+			<thead>
+				<tr>
+					<th>Sl. No</th>
+					<th>Customer Name</th>
+					<th class="text-center">Account Number</th>
+					<th class="text-center">Amount</th>
+					<th class="text-center">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="column in userAccountLists">
+					<td> {{ $index + 1 }}</td>
+					<td>{{column.UserName}}</td>
+					<td class="text-center">{{column.AccountNumber}}</td>
+					<td class="text-right">{{column.AvailableBalance | number}} <b>TK</b></td>
+					<td class="text-center">
+                        <button type="button" class="btn btn-info btn-sm" ng-click="openUpdateModal(column)">
+                            <i class="fa fa-pencil-square-o"></i>&nbsp;Edit
+                        </button> &nbsp;
+						<button type="button" class="btn btn-danger btn-sm" ng-click="deleteAUserAccount(column)">
+							Delete
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+<div class="modal fade" id="userAccountModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Customer Account Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="userFrom">
+
+                    <div class="form-group row" ng-init="GetAllUserName()">
+                        <label class="col-sm-4 col-form-label"> Customer Name <span style="color:red"> * </span></label>
+                        <div class="col-sm-8">
+                            <select name="userName" class="form-control" ng-hide="isUpdateMode" ng-model="userAccount.UserId"
+                                    ng-options="user.Id as user.UserName for user in Users" ng-change="userschange(userAccount.UserId)"></select>
+
+                            <input type="text" class="form-control" name="userName" ng-show="isUpdateMode" readonly ng-model="userAccount.UserName">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Customer A/C No. <span style="color:red"> * </span></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="userAccount"  ng-model="userAccount.AccountNumber">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Amount<span style="color:red"> * </span></label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" name="amount" ng-model="userAccount.AvailableBalance">
+                        </div>
+                    </div>
+
+                </form>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-window-close"></i>&nbsp;Close</button>
+                    <button type="button" class="btn btn-primary btn-sm" ng-hide="isUpdateMode" ng-click="saveChanges()"><i class="fa fa-save"></i>&nbsp;Save Changes</button>
+                    <button type="button" class="btn btn-primary btn-sm" ng-show="isUpdateMode" ng-click="update()"><i class="fa fa-save"></i>&nbsp;Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
